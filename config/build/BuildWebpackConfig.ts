@@ -1,16 +1,14 @@
-import webpack from "webpack";
-import {BuildOptions} from "./types/config";
-import path from "path";
-import {buildLouders} from "./buildLouders";
-import {buildResolve} from "./buildResolve";
-import {buildPlugins} from "./buildPlugins";
-import {buildDevServer} from "./buildDevServer";
-
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
+import { buildLouders } from './buildLouders';
+import { buildResolve } from './buildResolve';
+import { buildPlugins } from './buildPlugins';
+import { buildDevServer } from './buildDevServer';
 
 export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const {mode, paths} = options
-    return  {
-        mode: mode,
+    const { mode, paths } = options;
+    return {
+        mode,
 
         entry: paths.entry,
         module: {
@@ -20,11 +18,10 @@ export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration
         devServer: buildDevServer(options),
         resolve: buildResolve(options),
         output: {
-            filename: "[name].[contenthash].js",
+            filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
         },
         plugins: buildPlugins(options),
-    }
-
+    };
 }

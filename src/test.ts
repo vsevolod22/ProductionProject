@@ -1,5 +1,5 @@
 export function someFn() : string {
-    console.log("test");
+    console.log('test');
 
-    return ''
+    return '';
 }
