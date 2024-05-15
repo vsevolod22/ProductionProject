@@ -2,11 +2,46 @@ import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 
+import ReactRefreshTypeScript from 'react-refresh-typescript';
+
 export function buildLouders(opsions: BuildOptions) : webpack.RuleSetRule[] {
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [{
+           loader: 'ts-loader',
+           options: {getCustomTransformers: () => (
+               {before: [opsions.isDev && ReactRefreshTypeScript()].filter(Boolean),})}
+        }],
         exclude: /node_modules/,
+    }
+
+    const babelLoader =  {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    ["i18next-extract", {"nsSeparator": "~", locales:['ru', 'en'], keyAsDefaultValue: true }],
+                ]
+            }
+        }
+    }
+
+    const fileLoader =   {
+            test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
     }
     const cssLoader =       {
             test: /\.s[ac]ss$/i,
@@ -29,7 +64,7 @@ export function buildLouders(opsions: BuildOptions) : webpack.RuleSetRule[] {
         }
 
         return [
-        typescriptLoader, cssLoader
+        cssLoader, svgLoader, fileLoader, babelLoader, typescriptLoader,
     ]
 
 }
