@@ -4,6 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
+    // eslint-disable-next-line max-len
     extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -35,6 +36,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'max-len': ['error', { ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,
