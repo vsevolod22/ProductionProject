@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production ",
-    "build:dev": "webpack --env mode=development"
+    "build:dev": "webpack --env mode=development",
+    "test": "jest --config ./config/jest.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,7 @@
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
+    "@babel/preset-typescript": "^7.24.6",
     "@eslint/js": "^9.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
     "@storybook/addon-actions": "^6.4.19",
@@ -47,7 +48,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-i18next": "^5.1.2",
+    "eslint-plugin-i18next": "^5.2.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-n": "^15.7.0",
@@ -71,7 +72,7 @@
     "sass-loader": "^12.6.0",
     "semistandard": "^17.0.0",
     "style-loader": "^3.3.4",
-    "stylelint": "^14.5.3",
+    "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^3.0.0",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.5.0",
