@@ -31,12 +31,13 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
+
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': ['error', { code: 100, ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,
