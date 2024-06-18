@@ -37,7 +37,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { code: 100, ignoreComments: true }],
+        'max-len': ['error', { code: 130, ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,
