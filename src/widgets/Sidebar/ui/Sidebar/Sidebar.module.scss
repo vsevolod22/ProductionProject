@@ -8,6 +8,44 @@
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+
+    .link {
+        opacity: 0;
+        transition: opacity 0.2s;
+        width: 0;
+    }
+}
+
+.items {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.icon {
+    margin-right: 5px;
+    fill: var(--inverted-primary-color);
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.link {
+    margin-top: 10px;
 }
 
 .switchers {
@@ -20,4 +58,10 @@
 
 .lang {
     margin-left: 20px;
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 40px;
 }
